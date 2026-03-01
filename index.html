@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anthony's Professional CV</title>
+    
+    <style>
+        /* Modern, professional dark color palette */
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Container to leave room for the right navbar on desktop */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            padding-right: 220px; 
+        }
+
+        /* --- Right-Side Navbar --- */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: var(--surface-color);
+            border-left: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* --- Professional Cards --- */
+        .card {
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-top: 3px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            border-top: 3px solid var(--accent-color);
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+            letter-spacing: 0.5px;
+        }
+
+        hr {
+            display: none; 
+        }
+
+        /* --- Layouts --- */
+        .header-section {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .header-section img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+        }
+
+        .header-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* Clean Data Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .data-table th, .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+
+        .data-table th {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            background: #0f172a;
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        /* --- Scroll Animation Classes --- */
+        .slide-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .container {
+                /* Shrink padding to leave exactly enough room for the narrower mobile nav */
+                padding: 20px 130px 20px 15px; 
+            }
+
+            /* Keep navbar fixed to the right, but make it narrower */
+            nav {
+                width: 110px;
+                padding: 30px 10px;
+                gap: 12px;
+            }
+
+            /* Shrink link text so it fits in the narrower sidebar */
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            /* Shrink card padding to save screen space */
+            .card {
+                padding: 20px;
+            }
+
+            .header-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* Shrink profile image slightly on mobile */
+            .header-section img {
+                width: 120px;
+                height: 120px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr; /* Stack skills on mobile */
+            }
+            
+            /* Make table text slightly smaller to prevent horizontal scrolling */
+            .data-table th, .data-table td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="about.html">About</a>
+        <a href="books-teaching.html">Books & Teaching</a>
+        <a href="education.html">Education</a>
+        <a href="experience.html">Experience</a>
+        <a href="skills.html">Skills</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact-me.html">Contact Me</a>
+    </nav>
+
+    <div class="container">
+        
+        <div id="about" class="card slide-in">
+            <div class="header-section">
+                <img src="anthony.jpg" alt="Anthony Profile Picture">
+                <div class="header-text">
+                    <h1>Anthony D. Terrado</h1>
+                    <p>I am a student and Cyberbacker. I ❤️ chocolate and brew my own latte.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="card slide-in">
+            <h3>Books and Teaching</h3>
+            <ul>
+                <li>The Complete iOS App Development Bootcamp</li>
+                <li>The Complete Web Development Bootcamp</li>
+                <li>Cybersecurity Seminars with invited professors at De La Salle University via Zoom</li>
+                <li>TechAcademy</li>
+            </ul>
+        </div>
+      
+        <div id="education" class="card slide-in">
+            <h3>Education</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Year</th>
+                        <th>School & Program</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2020-2021</td>
+                        <td>Good Shepherd Cathedral School (High School)</td>
+                    </tr>
+                    <tr>
+                        <td>2022-2023</td>
+                        <td>Good Shepherd Cathedral School (Senior High School - STEM Strand)</td>
+                    </tr>
+                    <tr>
+                        <td>2026-2027</td>
+                        <td>Datamex College of Saint Adeline (BS in Information Technology, Major in Network Administration)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="experience" class="card slide-in">
+            <h3>Work Experience</h3>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Dates</th>
+                        <th>Role / Organization</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2023-2024</td>
+                        <td>Hack The Box and HackerOne</td>
+                    </tr>
+                    <tr>
+                        <td>2024-2025</td>
+                        <td>Cyberbacker</td>
+                    </tr>
+                    <tr>
+                        <td>2025-2026</td>
+                        <td>Jollibee Crew</td>
+                    </tr>
+                    <tr>
+                        <td>2026-2027</td>
+                        <td>Internship</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="skills" class="card slide-in">
+            <h3>Skills</h3>
+            <div class="skills-grid">
+                <div class="skill-item"><span>Computer Networking</span> <span>⭐️⭐️⭐️⭐️⭐️</span></div>
+                <div class="skill-item"><span>Database Management</span> <span>⭐️⭐️⭐️⭐️⭐️</span></div>
+                <div class="skill-item"><span>Web Dev (HTML/Swift/JS)</span> <span>⭐️⭐️⭐️⭐️⭐️</span></div>
+                <div class="skill-item"><span>Python Programming</span> <span>⭐️⭐️⭐️⭐️⭐️</span></div>
+                <div class="skill-item"><span>Cloud Technical Skills</span> <span>⭐️⭐️⭐️⭐️⭐️</span></div>
+                <div class="skill-item"><span>Microsoft Office Suite</span> <span>⭐️⭐️⭐️⭐️⭐️</span></div>
+                <div class="skill-item"><span>Photography</span> <span>⭐️⭐️⭐️⭐️</span></div>
+            </div>
+        </div>
+
+        <div id="certifications" class="card slide-in">
+            <h3>Certifications and Trainings</h3>
+            <ul>
+                <li>Udemy</li>
+                <li>Cisco</li>
+                <li>Coursera</li>
+                <li>Microsoft</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script>
+        // Setup the Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1 // Triggers when 10% of the element is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add the 'show' class to trigger CSS animation
+                    entry.target.classList.add('show');
+                    // Stop observing once it has animated
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // Target all elements with the 'slide-in' class
+        document.querySelectorAll('.slide-in').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books & Teaching</title>
+    
+    <style>
+        /* Shared Professional Dark Theme Variables */
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --input-bg: #0f172a;
+            --input-border: #334155;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Container with room for the right navbar */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            padding-right: 220px; 
+        }
+
+        /* --- Right-Side Navbar --- */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: var(--surface-color);
+            border-left: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* --- Professional Cards --- */
+        .card {
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-top: 3px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            border-top: 3px solid var(--accent-color);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        /* Course Typography Styling */
+        h3 {
+            color: var(--text-main);
+            margin-bottom: 5px;
+            font-size: 1.3rem;
+        }
+
+        .instructor {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .course-details ul {
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .course-details li {
+            margin-bottom: 12px;
+        }
+
+        .course-details strong {
+            color: var(--text-main);
+        }
+
+        /* --- Scroll Animation Classes --- */
+        .slide-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .container {
+                padding-right: 20px; 
+                padding-top: 80px; 
+            }
+
+            nav {
+                width: 100%;
+                height: auto;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 15px;
+                border-left: none;
+                border-bottom: 1px solid #334155;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home / CV</a>
+        <a href="books-teaching.html" class="active">Books & Teaching</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact-me.html">Contact Me</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="card slide-in">
+            <h2>Books, Teachings & Continuous Learning</h2>
+            
+            <h3>The Complete Web Development / Python Pro Bootcamp</h3>
+            <span class="instructor">Instructor: Dr. Angela Yu (Udemy)</span>
+            
+            <div class="course-details">
+                <h4>How I Learned & Key Takeaways:</h4>
+                <ul>
+                    <li><strong>Project-Driven Methodology:</strong> Mastered core programming concepts not through passive reading, but by building practical, real-world applications from scratch.</li>
+                    <li><strong>Developer Mindset & Debugging:</strong> Developed strong problem-solving skills by learning how to effectively read official documentation, navigate Stack Overflow, and debug complex errors independently.</li>
+                    <li><strong>Full-Stack Integration:</strong> Progressed from basic structural coding to connecting complex front-end interfaces with back-end databases and logic.</li>
+                    <li><strong>Best Practices:</strong> Learned industry-standard coding conventions, DRY (Don't Repeat Yourself) principles, and how to write clean, maintainable, and highly structured code.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide-in').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+
+</body>
+</html>

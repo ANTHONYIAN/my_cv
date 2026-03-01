@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Education</title>
+    
+    <style>
+        /* Shared Professional Dark Theme Variables */
+        :root {
+            --bg-color: #0f172a;
+            --surface-color: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Container with room for the right navbar */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            padding-right: 220px; 
+        }
+
+        /* --- Right-Side Navbar --- */
+        nav {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100vh;
+            background-color: var(--surface-color);
+            border-left: 1px solid #334155;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 20px;
+            box-sizing: border-box;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        /* --- Professional Cards --- */
+        .card {
+            background-color: var(--surface-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-top: 3px solid transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            border-top: 3px solid var(--accent-color);
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-top: 0;
+            margin-bottom: 25px;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        /* --- Education Specific Styling --- */
+        .edu-entry {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed #334155;
+        }
+
+        .edu-entry:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .edu-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .school-name {
+            color: var(--text-main);
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0;
+        }
+
+        .degree {
+            color: var(--accent-color);
+            font-size: 1.1rem;
+            margin: 5px 0 10px 0;
+            font-weight: 500;
+        }
+
+        .date-badge {
+            background-color: #0f172a;
+            color: var(--text-muted);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid #334155;
+            white-space: nowrap;
+        }
+
+        .edu-details {
+            color: var(--text-muted);
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .edu-details li {
+            margin-bottom: 8px;
+        }
+
+        /* --- Certificate Images Styling --- */
+        .cert-image-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .cert-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #334155;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .cert-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* --- Scroll Animation Classes --- */
+        .slide-in {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .slide-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Mobile Responsiveness --- */
+        @media (max-width: 768px) {
+            .container {
+                padding-right: 20px; 
+                padding-top: 100px;
+            }
+
+            nav {
+                width: 100%;
+                height: auto;
+                left: 0;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 15px;
+                border-left: none;
+                border-bottom: 1px solid #334155;
+            }
+
+            .edu-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html">Home / CV</a>
+        <a href="education.html" class="active">Education</a>
+        <a href="books-teaching.html">Books & Teaching</a>
+        <a href="hobbies.html">Hobbies</a>
+        <a href="contact-me.html">Contact Me</a>
+    </nav>
+
+    <div class="container">
+        
+        <div class="card slide-in">
+            <h2>Academic Background</h2>
+
+            <div class="edu-entry">
+                <div class="edu-header">
+                    <div>
+                        <h3 class="school-name">Datamex College of Saint Adeline</h3>
+                        <p class="degree">Bachelor of Science in Information Technology (BSIT)</p>
+                    </div>
+                    <span class="date-badge">AY 2025 - 2026</span>
+                </div>
+                <ul class="edu-details">
+                    <li>Currently in 3rd Year standing.</li>
+                    <li>Focusing on system integration, web development, and software engineering.</li>
+                </ul>
+            </div>
+
+            <div class="edu-entry">
+                <div class="edu-header">
+                    <div>
+                        <h3 class="school-name">Quezon City University</h3>
+                        <p class="degree">San Bartolome, Novaliches</p>
+                    </div>
+                </div>
+                <ul class="edu-details">
+                    <li>Recipient of the TDP - UNIFAST NCR Scholarship program.</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="card slide-in">
+            <h2>Senior High School Days</h2>
+            <div class="edu-entry">
+                <div class="edu-header">
+                    <div>
+                        <h3 class="school-name">Grade 12-Faithfulness</h3>
+                        <p class="degree">STEM</p>
+                    </div>
+                    <span class="date-badge">AY 2022 - 2023</span>
+                </div>
+                <ul class="edu-details">
+                    <li>Participate in QUIZBEE, Patimpalak in Good Sheperd Cathedral School, also participated in chorale group</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card slide-in">
+            <h2>Academic Awards</h2>
+            
+            <div class="edu-entry">
+                <div class="edu-header">
+                    <div>
+                        <h3 class="school-name">Certificate of Recognition</h3>
+                        <p class="degree">Arduino Project Exhibit</p>
+                    </div>
+                </div>
+                <div class="cert-image-container">
+                    <img src="certificate2.png" alt="Certificate of Recognition - Arduino Project Exhibit" class="cert-image">
+                </div>
+            </div>
+
+            <div class="edu-entry">
+                <div class="edu-header">
+                    <div>
+                        <h3 class="school-name">Certificate of Appreciation (when I was in 1st year in AMA FAIRVIEW QC)</h3>
+                         <p class="degree">Fairview Art Exhibit</p>
+                    </div>
+                </div>
+                <div class="cert-image-container">
+                    <img src="certificate1.png" alt="Certificate of Appreciation" class="cert-image">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.slide-in').forEach((element) => {
+            observer.observe(element);
+        });
+    </script>
+
+</body>
+</html>
